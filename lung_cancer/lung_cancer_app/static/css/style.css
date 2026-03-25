@@ -1,0 +1,85 @@
+/* 
+* Custom Styles for OncoSense AI
+* Used for specific layout adjustments, animations and effects
+* not covered natively by Tailwind utilities
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #0ea5e9; /* Tailwind sky-500 */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom fade in animation utilities */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Medical specific background pattern */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40vh;
+  background: linear-gradient(to bottom, #f0fdfa, transparent); /* medical-50 */
+  z-index: -1;
+}
+
+/* Spinner */
+.loader-pulse {
+  border-top-color: #0f766e; /* medical-700 */
+}
+
+/* Image Hover Zoom Helper */
+.hover-zoom-img {
+  transition: transform 0.3s ease;
+}
+.hover-zoom-img:hover {
+  transform: scale(1.05);
+}
+
+/* Better styling for the informational alerts */
+.custom-alert {
+  border-left: 3px solid #cbd5e1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9; 
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; 
+}
